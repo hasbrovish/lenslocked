@@ -12,8 +12,14 @@ https://www.alexedwards.net/blog/an-introduction-to-handlers-and-servemuxes-in-g
 - **Routing** :Determining  Which page to show to user
 - **wr**: make w & r for handler
 - **3rd party router**: 
-  - Chi
-  - gorilla mux
-  - Explore how can u make you own router
+- Chi
+- gorilla mux
+- Explore how can u make you own router
 
+
+
+## xss Attack :
+https://owasp.org/www-community/attacks/xss/
+In this attack hacker inject the malicious script in the application can easily
+access the session token and cookies and even delete the user account .
 
