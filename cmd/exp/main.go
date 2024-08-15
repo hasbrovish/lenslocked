@@ -6,9 +6,11 @@ import (
 )
 
 type User struct {
-	Name string
-	Age  int
-	Meta UserMeta
+	Name  string
+	Age   int
+	Meta  UserMeta
+	Big   string
+	Small template.HTML
 }
 
 type UserMeta struct {
@@ -28,6 +30,8 @@ func main() {
 		Meta: UserMeta{
 			Visit: 12,
 		},
+		Big:   "<script>This is way using XSS </script>",
+		Small: "<script>This is way using XSS if we need to avoid encoding </script>",
 	}
 
 	err = t.Execute(os.Stdout, user)
