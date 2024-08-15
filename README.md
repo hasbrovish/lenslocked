@@ -12,8 +12,8 @@ https://www.alexedwards.net/blog/an-introduction-to-handlers-and-servemuxes-in-g
 - **Routing** :Determining  Which page to show to user
 - **wr**: make w & r for handler
 - **3rd party router**: 
-  - Chi
-  - gorilla mux
-  - Explore how can u make you own router
+- Chi
+- gorilla mux
+- Explore how can u make you own router
 
 

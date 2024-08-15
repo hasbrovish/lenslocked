@@ -4,3 +4,11 @@
 Using encoding to prevent xss attack {{.Big}}
 If u want to ignore xss encoding {{.Small}}
 
+<script>
+const user = {
+    name: {{.Name}},
+    big: {{.Big}}
+    small: {{.Small}}
+}
+console.log(user)
+</script>
