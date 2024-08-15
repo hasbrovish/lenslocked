@@ -4,6 +4,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+
+	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi/v5/middleware"
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -29,6 +32,12 @@ func faqHandler(w http.ResponseWriter, r *http.Request) {
 	<li><b>Is the fee refundable?</b></li>
 	<p>Yes, it is . You can ask for refund process at any step of course</p</ol>
 	`)
+}
+
+func paramHandler(w http.ResponseWriter, r *http.Request) {
+	p := chi.URLParam(r, "param")
+	fmt.Fprint(w, p)
+
 }
 
 // func pathHandler(w http.ResponseWriter, r *http.Request) {
@@ -75,9 +84,12 @@ func main() {
 	// http.HandleFunc("/contact", contactHandler)
 	//http.HandleFunc("/", pathHandler)
 	// Listen and serve with proper error handling
-	var router Router
+	//var router Router
+	r := chi.NewRouter()
+	r.Use(middleware.Logger)
+	r.Get("/{param}", paramHandler)
 	log.Println("Listening server at :9090")
-	err := http.ListenAndServe(":9090", router)
+	err := http.ListenAndServe(":9090", r)
 	if err != nil {
 		log.Fatalf("Server failed to start: %v", err)
 	}
